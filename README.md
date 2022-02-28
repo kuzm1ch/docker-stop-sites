@@ -24,6 +24,11 @@ where:
 
 ` --pull=always` - pull image before running
 
+By default config source site is https://stop-russian-desinformation.near.page/, but in case you want to use another site, set it as ENV variable.
+```
+docker run --restart=always --detach --name=desinform_stop --pull=always -e SITE='https://cocky-hugle-0729da.netlify.app/' kuzmichm/desinform-stop
+```
+
 ### Crontab setup(required)
 Set up cron to restart container every 3rd hour to ensure that it is always running. This command will add new line to crontab.
 ```

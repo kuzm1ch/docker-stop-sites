@@ -12,7 +12,7 @@ npm run start &
 sleep 10
 
 # Start open stop-russions-desinform site
-for i in {1..1000}; do curl http://localhost:3000/render/https://stop-russian-desinformation.near.page/ && sleep 15; done &
+for i in {1..1000}; do curl http://localhost:3000/render/$SITE && sleep 15; done &
 
 # now we bring the primary process back into the foreground
 # and leave it there

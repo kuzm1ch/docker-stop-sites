@@ -2,6 +2,8 @@ FROM dockette/rendertron:latest
 
 RUN apt-get update && apt-get -y install curl
 
+ENV SITE="https://stop-russian-desinformation.near.page/"
+
 # script to run rendertron and open URL https://stop-russian-desinformation.near.page/ 
 COPY script.sh config.json ./
 
