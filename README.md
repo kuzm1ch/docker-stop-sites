@@ -6,6 +6,7 @@ To stop russion desinformation on servers using simple docker run
 ```
 sudo apt install docker docker.io
 sudo usermod -aG docker $USER # for running docker without sudo
+sudo reboot
 ```
 
 ## Usage
