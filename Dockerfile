@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM dockette/rendertron:latest
 
 RUN apt-get update && apt-get -y install curl
 
