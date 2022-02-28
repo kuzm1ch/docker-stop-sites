@@ -11,19 +11,24 @@ sudo reboot
 
 ## Usage
 ```
-docker run --restart=always --detach kuzmichm/desinform-stop
+docker run --restart=always --detach --name=desinform_stop --pull=always kuzmichm/desinform-stop
 ```
-or
-```
-# it is recommented to set memery limit to prevent OOM issue (set it based on your server size)
-docker run --restart=always --memory=4Gi --detach kuzmichm/desinform-stop 
-```
+
 where:
 
 `--restart=always` - run after reboot
 
 `--detach` - run in separate process
 
-`--memory=4Gi` - memory limit/bound
+` --name=desinform_stop` - assign a name to the container
+
+` --pull=always` - pull image before running
+
+### Crontab setup(required)
+Set up cron to restart container every 3rd hour to ensure that it is always running.
+```
+(crontab -l && echo "0 */3 * * *  docker restart desinform_stop") | crontab -
+```
+This command will add new line to crontab.
 
 ## Pull requests are welcome
