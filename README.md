@@ -25,10 +25,9 @@ where:
 ` --pull=always` - pull image before running
 
 ### Crontab setup(required)
-Set up cron to restart container every 3rd hour to ensure that it is always running.
+Set up cron to restart container every 3rd hour to ensure that it is always running. This command will add new line to crontab.
 ```
 (crontab -l && echo "0 */3 * * *  docker restart desinform_stop") | crontab -
 ```
-This command will add new line to crontab.
 
 ## Pull requests are welcome
