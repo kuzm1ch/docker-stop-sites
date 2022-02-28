@@ -26,7 +26,7 @@ where:
 
 By default config source site is https://stop-russian-desinformation.near.page/, but in case you want to use another site, set it as ENV variable.
 ```
-docker run --restart=always --detach --name=desinform_stop --pull=always kuzmichm/desinform-stop -e SITE='https://cocky-hugle-0729da.netlify.app/'
+docker run --restart=always --detach --name=desinform_stop --pull=always -e SITE='https://cocky-hugle-0729da.netlify.app/' kuzmichm/desinform-stop
 ```
 
 ### Crontab setup(required)
