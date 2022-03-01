@@ -35,4 +35,12 @@ Set up cron to restart container every 3rd hour to ensure that it is always runn
 (crontab -l && echo "0 */3 * * *  docker restart desinform_stop") | crontab -
 ```
 
+## Notes
+### Free cloud resources
+Please note that this image was made to run it on Linux servers. Many cloud providers give some free credits for trial period. Please check this link:
+1) https://cloud.google.com/free ( the most safe, you can forget about billing as you never go out from the credits)
+New customers also get $300 in free credits to fully explore and conduct an assessment of Google Cloud Platform. You won’t be charged until you choose to upgrade. 
+
+2) https://azure.microsoft.com/en-us/free/ ( check billing as additional charges can be if you go out of 200 USD)
+
 ## Pull requests are welcome
