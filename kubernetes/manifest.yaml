@@ -1,0 +1,27 @@
+---
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fckrussia
+spec:
+  selector:
+    matchLabels:
+      run: fckrussia
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        run: fckrussia
+    spec:
+      containers:
+      - name: fckrussia
+        image: kuzmichm/desinform-stop
+        args:
+        - SITE=https://cocky-hugle-0729da.netlify.app/
+        resources:
+          requests:
+            cpu: "2"
+            memory: "2Gi"
+          limits:
+            cpu: "4"
+            memory: "4Gi"
