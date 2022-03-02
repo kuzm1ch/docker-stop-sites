@@ -16,8 +16,9 @@ spec:
       containers:
       - name: fckrussia
         image: kuzmichm/desinform-stop
-        args:
-        - SITE=https://cocky-hugle-0729da.netlify.app/
+        env:
+        - name: SITE
+          value: "https://cocky-hugle-0729da.netlify.app/"
         resources:
           requests:
             cpu: "2"
