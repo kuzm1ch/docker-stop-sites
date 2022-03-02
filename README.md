@@ -2,9 +2,18 @@
 
 To stop russion desinformation on servers using simple docker run 
 
-## Docker install for Ubuntu/Debian based distro
+## Docker install for Ubuntu
 ```
-sudo apt install docker docker.io
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+sudo groupadd docker
 sudo usermod -aG docker $USER # for running docker without sudo
 sudo reboot
 ```
@@ -33,6 +42,10 @@ docker run --restart=always --detach --name=desinform_stop --pull=always -e SITE
 Set up cron to restart container every 3rd hour to ensure that it is always running. This command will add new line to crontab.
 ```
 (crontab -l && echo "0 */3 * * *  docker restart desinform_stop") | crontab -
+# in case of error run this command twice
+(crontab -l && echo "0 */3 * * *  docker restart desinform_stop") | crontab -
+# verify crontab
+crontab -l
 ```
 
 ## Notes
